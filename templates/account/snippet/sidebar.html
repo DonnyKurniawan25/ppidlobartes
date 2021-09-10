@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="default-sidebar">
+    <!-- Begin Side Navbar -->
+    <nav class="side-navbar box-scroll sidebar-scroll">
+        <!-- Begin Main Navigation -->
+        <ul class="list-unstyled">
+            <li><a href="{% url 'dashboard' %}"><i class="la la-columns"></i><span>Dashboard</span></a></li>
+            <li><a href="#dropdown-app" aria-expanded="false" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>DIP</span></a>
+                <ul id="dropdown-app" class="collapse list-unstyled pt-0">
+                    <li><a href="{% url 'datappid' %}">Daftar DIP</a></li>
+                    <li><a href="{% url 'create' %}">Tambah DIP</a></li>
+                </ul>
+            </li>
+        </ul>
+        <span class="heading">Permohonan</span>
+        <ul class="list-unstyled">
+            <li><a href="#dropdown-ui" aria-expanded="false" data-toggle="collapse"><i class="la la-share-alt"></i><span>Permohonan DIP</span></a>
+                <ul id="dropdown-ui" class="collapse list-unstyled pt-0">
+                    <li><a href="{% url 'permohonan' %}">Daftar Pemohon</a></li>
+                </ul>
+            </li>
+        </ul>
+        <span class="heading">USER</span>
+        <ul class="list-unstyled">
+            <li><a href="#dropdown-authentication" aria-expanded="false" data-toggle="collapse"><i class="la la-user"></i><span>Profil</span></a>
+                <ul id="dropdown-authentication" class="collapse list-unstyled pt-0">
+                    {% for p in show %}
+                    <li><a href="{% url 'profile' pk=p.id %}">Profil Pengguna</a></li>
+                    {% endfor %}
+                    <li><a href="{% url 'change-password-view' %}">Ubah Password</a></li>
+                </ul>
+                
+            </li>
+        </ul>
+        <!-- End Main Navigation -->
+    </nav>
+    <!-- End Side Navbar -->
+</div>
+<!-- End Left Sidebar -->

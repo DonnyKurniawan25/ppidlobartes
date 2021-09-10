@@ -1,0 +1,48 @@
+{% extends "ppid/base-content.html" %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron alert alert-danger">  
+<h4>Permintaan Data</h4>
+<p class="text-fancy"><img src="{% static 'images/logo.png' %}">Sebelum melakukan permintaan DIP silakan lihat semua daftar informasi publik kami yang sudah di upload
+<a href="{% url 'DIP' %}">disini</a> 
+atau silakan melakukan pencarian DIP pada kotak pencarian diatas. Jika informasi tidak tersedia silakan anda mengajukan permohonan informasi <a href="Formulir">disini</a></p>
+
+<p class="alert-danger"><small>Untuk permintaan secara langsung ke Kantor PPID silakan mengisi formulir yang dapat di <a href="media/formpermintaandata.pdf"> download disini</a></small></p>
+<p class="alert-danger"><img src="{% static 'images/alurpermohonan.jpeg' %}"></p>
+<h2>Lacak Permintaan Data</h2>
+<div class="input-group stylish-input-group">
+ <h4 class="block-title">Permintaan Data Terbaru</h4>
+    <small>
+        <table class="table table-bordered" id="dtb">
+        <thead>
+            <tr>
+            <th>NO </th>
+            <th>Nama</th>
+            <th>Tujuan Permintaan Data</th>
+            <th>Rincian</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in show %}
+            <tr>
+                <td>{{ s.id }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.purpose}}</td>
+                <td>{{ s.detail }}</td>
+                <td>{{ s.date }}</td>
+                <td>{{ s.status }}</td>
+                <td>{{ s.Information }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </small>
+</div>
+
+</div>
+
+{% endblock %}

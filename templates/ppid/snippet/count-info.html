@@ -1,0 +1,25 @@
+<div class="page-header">
+    <h3>
+    DAFTAR INFORMASI PUBLIK  <a href="DIP" class="btn btn-more large i-right">Total Data {{ dip_count}}<i class="fa fa-search  " ></i></a>
+    <small></small></h3>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="stat">
+            <a href="{% url 'berkala' %}"><span data-counter-up>{{ dip1_count }}</span></a>
+            <small>Informasi Berkala</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat">
+            <a href="sertamerta"><span data-counter-up>{{ dip2_count }}</span></a>
+            <small>Seta Merta</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat">
+            <a href="setiapsaat"><span data-counter-up>{{ dip3_count }}</span>
+            <small>Setiap Saat</small></a>
+        </div>
+    </div>
+</div>

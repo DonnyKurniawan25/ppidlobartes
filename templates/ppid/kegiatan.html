@@ -1,0 +1,32 @@
+{% extends "ppid/base-content.html" %}
+
+{% block content %}
+<!--main content-->
+    <div class="block-highlight block-pd-h block-pd-sm">
+        <h3 class="block-title">
+            <!-- ISI DIP -->
+            <h3 class="block-title"><strong> Kegiatan</strong></h3>
+            <ul class="list-dotted">
+            <br>
+            {% for kegiatan in show%}
+            <h4 class="media-heading"><a class="text-weight-strong" href="{% url 'DIP'  pk=kegiatan.id %}?post-id={{ kegiatan.id }}">{{kegiatan.title}}</a></h4>
+            <p><small>OPD : {{kegiatan.dinas}}</small><p><hr> 
+            {% endfor %}
+             <ul class="pagination pagination-lg">
+            {% if show.has_previous %}
+                <li><a href="{% url 'kegiatan' %}?page={{show.previous_page_number}}">&lt;&lt; Previous </a></li>
+            {% endif %}
+            <li> <a href=''>{{show.number}} Of {{show.paginator.num_pages}}</a></li>
+            {% if show.has_next  %}
+                <li><a href="{% url 'kegiatan' %}?page={{show.next_page_number}}">Next &gt;&gt;</a></li>
+            {% else %}
+            {% endif %}
+            <br>
+            </ul><p><h4><span class="alert alert-info">Jumlah DIP Yang Diunggah = {{dip_count}} </span></h4></p>
+            <br>
+            
+            <!-- Berkala Serta Merta setiap saat -->
+            <p class="text-fancy"><small>Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kabupaten Lombok Barat menyediakan akses informasi publik bagi pemohon informasi sebagai salah satu wujud pelaksanaan keterbukaan informasi publik.</small></p>
+    </div>
+    
+{% endblock %}

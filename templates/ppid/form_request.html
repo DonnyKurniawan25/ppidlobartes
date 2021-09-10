@@ -1,0 +1,123 @@
+{% extends "ppid/base-content.html" %}
+{% load static %}
+{% block content %}
+
+<div class="block block-border-bottom-grey block-pd-sm">
+  <h3 class="block-title">Formulir Permintaan Data</h3>
+  <h1>PPID Lombok Barat</h1><br>
+	<p>
+    Download <a href="{% static 'file/tatacarapermohonan.pdf' %}" target="_blank">Tatacara Permohonan Informasi</a>
+	</p><br>	
+				
+<!--	<p>DAlam Perbaikan  </p> -->
+
+	<form accept-charset="UTF-8"  action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <fieldset>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
+		        {{form.name}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" title="Kategori Pemohon"><small>Kategori</small></span>
+            
+		        {{form.kategory_pemohon}}
+          </div>
+        </div>
+         <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" title="Dinas"><small>Dinas</small></span>
+            
+		        {{form.dinas}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-map-marker "></i></span>
+		        {{form.address}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-phone "></i></span>
+		        {{form.telp}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+		        {{form.email}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" disabled="disabled" id="fake-file-button-upload">
+                <small>Scan KTP</small>
+              </button>
+            </span>
+		        {{form.ktp}}
+            <span class="input-group-btn">
+              <button id="fake-file-button-browse" disabled type="button" class="btn btn-default">
+                 <span class="fa fa-credit-card "></span>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-question-circle"></i></span>
+		        {{form.purpose}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-fw fa-pencil-square-o "></i></span>
+		        {{form.detail}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" title="Kategori Pemohon"><small>File</small></span>
+		        {{form.action}}
+          </div>
+        </div>
+		        {{form.status}}
+        <div class="checkbox">
+          <div class="g-recaptcha" data-sitekey="6LcprCUUAAAAAOu59Wqkoxzr-ZibvTDueGYFPRvK"></div> 
+        </div>
+        <input class="btn btn-lg btn-primary" name="Submit" type="submit" value="Kirim Permintaan Data"> <input type="reset" class="btn btn-lg btn-primary" value="Hapus Text" />
+    </fieldset>
+  </form>
+</div> 
+<h4 class="block-title"> Permintaan Data Terbaru</h4>
+<table class="table table-bordered" id="dtb">
+  <thead>
+    <tr>
+      <th>NO </th>
+      <th>Nama</th>
+      <th>Tujuan Permintaan Data</th>
+      <th>Rincian</th>
+      <th>Tanggal</th>
+      <th>Status</th>
+      <th>Keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in show %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.purpose}}</td>
+      <td>{{ s.detail }}</td>
+      <td>{{ s.date }}</td>
+      <td>{{ s.status }}</td>
+      <td>{{ s.Information }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

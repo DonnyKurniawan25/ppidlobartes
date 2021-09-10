@@ -1,0 +1,137 @@
+{% load static %}
+<div class="testimonials block-contained">
+    <div class="row">
+        <!--Customer testimonial-->
+        <h3 class="block-title">
+            Data PPID Kabupaten Lombok Barat 
+        </h3>
+        <div class="col-md-4 m-b-lg">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">PPID Utama<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/logo.png' %}"></div>
+                        <div class="panel-body">
+
+                                <ol class="list-dotted">
+                                    {% for s in show %}
+                                   <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                                    {% endfor %}
+                                </ol>
+
+                            {% for sites in site1%}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+        <!--Latest Blog posts-->
+        <div class="col-md-4 blog-roll">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">PPID Kecamatan<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/kecamatan.png' %}"></div>
+                        <div class="panel-body">
+
+                                <ol class="list-dotted">
+                                    {% for s in showkecamatan %}
+                                    <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                                    {% endfor %}
+                                </ol>
+                            
+                            {% for sites in site5 %}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+        <div class="col-md-4 blog-roll">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">PPID Desa<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/desa.png' %}"></div>
+                        <div class="panel-body">
+                                <ol class="list-dotted">
+                                    {% for s in showdesa %}
+                                        <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                                    {% endfor %}
+                                </ol>
+                            {% for sites in site4 %}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 m-b-lg">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">PPID Sekolah<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/sekolah.png' %}"></div>
+                        <div class="panel-body">
+                            <ol class="list-dotted">
+                            {% for s in showsekolah %}
+                                <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                            {% endfor %}
+                            </ol>
+                            {% for sites in site2 %}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+        <!--Latest Blog posts-->
+        <div class="col-md-4 blog-roll">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">PPID Puskesmas<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/puskesmas.png' %}"></div>
+                        <div class="panel-body">
+                                <ol class="list-dotted">
+                                    {% for s in showpuskesmas %}
+                                    <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                                    {% endfor %}
+                                </ol>
+                            {% for sites in site3 %}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+    </div>
+</div>

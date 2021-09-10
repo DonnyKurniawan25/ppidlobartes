@@ -1,0 +1,58 @@
+{% extends "ppid/base-detail.html" %}
+{% load static %}
+{% block content %}
+<div class="block-highlight block-pd-h block-pd-sm">
+    <h3 class="block-title">
+    <!-- ISI DIP -->
+    <div class="alert alert-success block-pd-h block-pd-sm">
+             <h3 class="block-title">
+            <strong>{{ object.title }}</strong>
+            </h3>
+            </div>
+            <div class="alert alert-info">
+            <strong><small> Kode DIP : {{ object.code }}<br>
+            <span> OPD : {{ object.dinas.title }}</span><br>
+            <span>Penanggung Jawab : <b> {{ object.responsible}}  </b> </span><br>
+            </small></strong>      
+            <br>
+             <object height="600px" width="700px">
+             <embed height="600px" 
+                src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://ppid.lombokbaratkab.go.id/media/{{ object.file }}" 
+                type="application/pdf" width="700px"></embed>
+            </object>
+             <form action="{% url 'Download' pk=object.id %}" method="get">
+                    <input type="hidden" name="post-id" value="{{object.id}}"> 
+                    <button type="submit" class="btn btn-more i-right"  class="link2 fleft">Download<i class="fa fa-download"></i></button>
+                    {% comment %} <a class="btn btn-more i-right"  href="{% url 'Download' d.slug %}" class="link2 fleft">Download <i class="fa fa-download"></i></a>   {% endcomment %}
+                </form>
+            {% comment %} <a class="btn btn-more large i-right"  href="{% url 'Download' object.id %}" class="link2 fleft" onClick="document.getElementById('domain-form').submit()" title="KegiatanPeringatanHariAirSeduniakeXXIXTahun202110454412042021.pdf">Download <i class="fa fa-download "></i></a> {% endcomment %}
+    </div>
+    <div class="col-md-3  alert alert-danger">
+        <div class="stat">
+            <span ><h5 class="block-title">{{ object.date_a }}</h5></span>
+            <h5><i class="fa fa-calendar "></i>Tanggal</h5></p>
+        </div>
+    </div>
+    <div class="col-md-3 alert alert-danger">
+        <div class="stat">
+            <span ><h3 class="block-title">{{ object.size }} MB
+            </h3></span>
+            <h5><i class="fa fa-pie-chart"></i>Ukuran</h5>
+        </div>
+    </div>
+    <div class="col-md-3 alert alert-danger">
+        <div class="stat">
+            <span data-counter-up><h3 class="block-title">{{ object.total_reads }}</h3></span>
+            <small><i class="fa fa-eye  "></i>Dibaca</small>
+        </div>
+    </div>
+    <div class="col-md-3 alert alert-danger">
+        <div class="stat">
+            <span data-counter-up>{{ object.total_downloads }}</span>
+            <h5><i class="fa fa-download "></i>Didownload</small>
+        </div>
+    </div>
+</div>
+<!-- Berkala Serta Merta setiap saat -->
+<p class="text-fancy"><small>Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kabupaten Lombok Barat menyediakan akses informasi publik bagi pemohon informasi sebagai salah satu wujud pelaksanaan keterbukaan informasi publik.</small></p>
+{% endblock %}

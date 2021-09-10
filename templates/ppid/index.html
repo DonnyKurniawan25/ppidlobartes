@@ -1,0 +1,34 @@
+{% extends "ppid/base.html" %}
+{% load static %}
+
+
+{% block slider %}
+{% include "ppid/snippet/slider.html" %}
+{% endblock %}
+
+{% block content %}
+ <!-- Mission Statement -->
+{% include "ppid/snippet/mission.html" %}
+<!-- Services -->
+<div class="services block block-bg-gradient block-border-bottom">
+    
+    {% include "ppid/snippet/informasi.html" %}
+
+    <!--Showcase-->
+    {% include "ppid/snippet/showcase.html" %}
+
+    <!-- Pricing -->
+    {% include "ppid/snippet/pricing.html" %}
+
+    {% include "ppid/snippet/DIP.html" %}
+
+    {% for s in slide  %}
+    <p class="alert-danger" align= "center" ><img src="{{ s.permohonan.url }}"></p>
+    {% endfor %}
+        
+    <!--Customer testimonial & Latest Blog posts-->
+    {% include "ppid/snippet/customer.html" %}
+
+    
+</div>
+{% endblock %}

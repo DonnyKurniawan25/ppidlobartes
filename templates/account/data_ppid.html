@@ -1,0 +1,176 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content %}
+<div class="content-inner">
+	<div class="container-fluid">
+		<!-- Begin Page Header-->
+		<div class="row">
+			<div class="page-header">
+				<div class="d-flex align-items-center">
+					<h2 class="page-header-title">DIP</h2>
+					<div>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+							<li class="breadcrumb-item active">Daftar DIP</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Header -->
+		<div class="row">
+			<div class="col-xl-12">
+				<!-- Sorting -->
+				<div class="widget has-shadow">
+					<div class="widget-header bordered no-actions">
+						<h4>DIP</h4>
+					<a style="float:right" type="button" href="{% url 'create'%}" class="btn btn-secondary mr-1 mb-2"><i class="la la-rocket"></i>ADD DIP</a>
+
+					</div>
+					<div class="widget-body">
+						<div class="table-responsive">
+							<table id="sorting-table" class="table mb-0">
+								<thead>
+									<tr>
+										<th>Kode DIP</th> 
+										<th>Judul DIP</th> 
+										<th>SKPD</th> 
+										<th>Tanggal</th> 
+										<th>Actions</th> 
+									</tr>
+								</thead>
+								<tbody>
+								{% for datas in data %}
+									<tr>
+										<td><span class="text-primary">{{ datas.code}}</span></td>
+										<td>{{ datas.title }}</td>
+										<td>{{ datas.dinas }}</td>
+										<td>{{ datas.date_a}}</td>
+										<td class="td-actions">
+											<button><a href="{% url 'update' datas.id %}"><i class="la la-edit edit"></i></a></button><hr>
+											<form method="POST" action="{% url 'delete' datas.id %}">
+												{% csrf_token %}
+												<button type="submit" onclick="return confirm('Apakah Data Mau DiHapus?')"><a><i class="la la-close delete"></i></a></button>
+											</form>
+											{% comment %} <a href="{% url 'delete' datas.id %}" onclick="return confirm('Apakah Data Mau DiHapus?')"><i class="la la-close delete"></i></a> {% endcomment %}
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- End Sorting -->
+			</div>
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Container -->
+
+	<a href="#" class="go-top"><i class="la la-arrow-up"></i></a>
+</div>
+<!-- End Content -->
+
+{% endblock %}
+
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'assets/css/datatables/datatables.min.css' %}">
+
+
+ <!-- Begin Page Vendor Js -->
+<script src="{% static 'assets/vendors/js/datatables/datatables.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/jszip.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/vfs_fonts.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/nicescroll/nicescroll.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/app/app.min.js' %}"></script>
+<!-- End Page Vendor Js -->
+
+{% endblock %}
+
+{% block script %}
+(function ($) {
+
+	'use strict';
+
+	// ------------------------------------------------------- //
+	// Auto Hide
+	// ------------------------------------------------------ //	
+
+	$(function () {
+		$('#sorting-table').DataTable({
+			"lengthMenu": [
+				[10, 15, 20, -1],
+				[10, 15, 20, "All"]
+			],
+			"order": [
+				[3, "desc"]
+			]
+		});
+	});
+
+	$(function () {
+		$('#export-table').DataTable({
+			dom: 'Bfrtip',
+			buttons: {
+				buttons: [{
+					extend: 'copy',
+					text: 'Copy',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'excel',
+					text: 'Excel',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'csv',
+					text: 'Csv',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'pdf',
+					text: 'Pdf',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'print',
+					text: 'Print',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true,
+					autoPrint: true
+				}],
+				dom: {
+					container: {
+						className: 'dt-buttons'
+					},
+					button: {
+						className: 'btn btn-primary'
+					}
+				}
+			}
+		});
+	});
+
+})(jQuery);
+{% endblock %}

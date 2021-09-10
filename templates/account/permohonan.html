@@ -1,0 +1,182 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content %}
+<div class="content-inner">
+	<div class="container-fluid">
+		<!-- Begin Page Header-->
+		<div class="row">
+			<div class="page-header">
+				<div class="d-flex align-items-center">
+					<h2 class="page-header-title">Permohonan</h2>
+					<div>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+							<li class="breadcrumb-item active">Daftar Permohonan</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Header -->
+		<div class="row">
+			<div class="col-xl-12">
+				<!-- Sorting -->
+				<div class="widget has-shadow">
+					<div class="widget-header bordered no-actions">
+						<h4>Permohonan</h4>
+					</div>
+					<div class="widget-body">
+						<div class="table-responsive">
+							<table id="sorting-table" class="table mb-0">
+								<thead>
+									<tr>
+										<th>Nomor</th> 
+										<th>Nama</th> 
+										<th>Tujuan Permintaan</th> 
+										<th>Rincian</th> 
+										<th>Tanggal</th> 
+										<th>Kategori Pemohon</th> 
+										<th>Keinginan</th> 
+										<th>Status</th> 
+										<th>Proses</th> 
+									</tr>
+								</thead>
+								<tbody>
+								{% for datas in data %}
+									<tr>
+										<td><span class="text-primary">{{ datas.id}}</span></td>
+										<td>{{ datas.name }}</td>
+										<td>{{ datas.purpose }}</td>		 
+										<td>{{ datas.detail }}</td>		 
+										<td>{{ datas.date}}</td>
+										<td>{{ datas.kategory_pemohon}}</td>
+										<td>{{ datas.action}}</td>
+                                        <td><span style="width:100px;"><span class="badge-text badge-text-small {% if datas.status == 'Belum Diproses' %}
+										info{% elif datas.status == 'Ditolak' %}danger {% else %} success{% endif %}">{{ datas.status}}</span></span></td>
+										<td class="td-actions">
+											<button><a href="{% url 'prosespermohonan' datas.id %}"  title='Proses Data'><i class="la la-search-plus edit"></i></a></button><hr>
+											<form method="POST" action="{% url 'deletepermohonan' datas.id %}">
+												{% csrf_token %}
+												<button type="submit" onclick="return confirm('Apakah Data Mau DiHapus?')"><a><i class="la la-close delete"></i></a></button>
+											</form>
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- End Sorting -->
+			</div>
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Container -->
+
+	<a href="#" class="go-top"><i class="la la-arrow-up"></i></a>
+</div>
+<!-- End Content -->
+
+{% endblock %}
+
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'assets/css/datatables/datatables.min.css' %}">
+
+
+ <!-- Begin Page Vendor Js -->
+<script src="{% static 'assets/vendors/js/datatables/datatables.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/jszip.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/vfs_fonts.js' %}"></script>
+<script src="{% static 'assets/vendors/js/datatables/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/nicescroll/nicescroll.min.js' %}"></script>
+<script src="{% static 'assets/vendors/js/app/app.min.js' %}"></script>
+<!-- End Page Vendor Js -->
+
+{% endblock %}
+
+{% block script %}
+(function ($) {
+
+	'use strict';
+
+	// ------------------------------------------------------- //
+	// Auto Hide
+	// ------------------------------------------------------ //	
+
+	$(function () {
+		$('#sorting-table').DataTable({
+			"lengthMenu": [
+				[10, 15, 20, -1],
+				[10, 15, 20, "All"]
+			],
+			"order": [
+				[3, "desc"]
+			]
+		});
+	});
+
+	$(function () {
+		$('#export-table').DataTable({
+			dom: 'Bfrtip',
+			buttons: {
+				buttons: [{
+					extend: 'copy',
+					text: 'Copy',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'excel',
+					text: 'Excel',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'csv',
+					text: 'Csv',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'pdf',
+					text: 'Pdf',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true
+				},{
+					extend: 'print',
+					text: 'Print',
+					title: $('h1').text(),
+					exportOptions: {
+						columns: ':not(.no-print)'
+					},
+					footer: true,
+					autoPrint: true
+				}],
+				dom: {
+					container: {
+						className: 'dt-buttons'
+					},
+					button: {
+						className: 'btn btn-primary'
+					}
+				}
+			}
+		});
+	});
+
+})(jQuery);
+{% endblock %}

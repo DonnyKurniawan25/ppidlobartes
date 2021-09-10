@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    {% include "ppid/snippet/head.html" %}
+
+    {% include "ppid/snippet/styles.html" %}
+
+    </head>
+    <body class="page-index has-hero">
+        <!--Change the background class to alter background image, options are: benches, boots, buildings, city, metro -->
+        <div id="background-wrapper" class="buildings" data-stellar-background-ratio="0.1">
+            <!-- ======== @Region: #navigation ======== -->
+            <div id="navigation" class="wrapper">
+
+               {% include "ppid/snippet/header.html" %}
+            
+                <div class="container">
+                    {% include "ppid/snippet/navbar.html" %}
+                </div>
+                {% block slider %}
+                {% endblock %}
+            </div>
+        </div>
+        
+        <!-- ======== @Region: #content ======== -->
+        <div id="content">
+            <div class="container" id="about">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% block content %}
+                        {% endblock %}
+                        {% include "ppid/snippet/DIP-search.html" %}
+                    </div>
+                    <!-- sidebar -->
+                </div>
+            </div>
+        </div>
+
+
+        {% include "ppid/snippet/link_terkait.html" %}
+
+        <!-- ======== @Region: #footer ======== -->
+        {% include "ppid/snippet/footer.html" %}
+        
+        {% include "ppid/snippet/scripts.html" %}
+            
+    </body>
+</html>

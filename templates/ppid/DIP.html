@@ -1,0 +1,39 @@
+{% extends "ppid/base-content.html" %}
+
+{% block content %}
+<div class="block-highlight block-pd-h block-pd-sm">
+    <h3 class="block-title">
+        <!-- ISI DIP -->
+    {% for d in dip %}
+    <div class="block-highlight block-pd-h block-pd-sm">
+            <h4 class="block-title"><strong> {{ d.title }}</strong> - {{ d.dinas.shortness}}</h4>
+            <p class="text-fancy"><h5><i class="fa fa-calendar"></i> {{ d.date_a }}|
+            <i class="fa fa fa-cog"></i> {{ d.size }} MB
+            <i class="fa fa-book"></i></b>{{ d.total_reads }} X |
+            <i class="fa fa-download"></i>{{ d.total_downloads }} X
+            OPD : {{ d.dinas.title }} 
+            <align="right">
+                <a class="btn btn-more i-right"  href="{% url 'DIP' pk=d.id %}?post-id={{ d.id }}" class="link2 fleft" >Detail<i class="fa fa-eye"></i></a>
+                <a class="btn btn-more i-right"  href="{% url 'Download' pk=d.id %}?post-id={{ d.id }}" class="link2 fleft">Download <i class="fa fa-download"></i></a>  
+                {% comment %} <a  class="btn btn-more i-right"  href="{% url 'DIP' d.slug %}" class="link2 fleft">Detail<i class="fa fa-eye"></i></a> {% endcomment %}
+            </align>    </h5>
+            </p>
+    </div>
+    {% endfor %}
+
+            <ul class="pagination pagination-lg">
+            {% if dip.has_previous %}
+                <li><a href="{% url 'DIP' %}?page={{dip.previous_page_number}}">&lt;&lt; Previous </a></li>
+            {% endif %}
+            <li> <a href='/p_mekanisme.php?act=dip&page=316'>{{dip.number}} Of {{dip.paginator.num_pages}}</a></li>
+            {% if dip.has_next  %}
+                <li><a href="{% url 'DIP' %}?page={{dip.next_page_number}}">Next &gt;&gt;</a></li>
+            {% else %}
+            {% endif %}
+            </ul><p><h4><span class="alert alert-info">Jumlah DIP Yang Diunggah = {{dip_count}} </span></h4></p>
+            <!-- Berkala Serta Merta setiap saat -->
+            <p class="text-fancy"><small>Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kabupaten Lombok Barat menyediakan akses informasi publik bagi pemohon informasi sebagai salah satu wujud pelaksanaan keterbukaan informasi publik.</small></p>
+        </div>
+           
+{% endblock %}
+ 

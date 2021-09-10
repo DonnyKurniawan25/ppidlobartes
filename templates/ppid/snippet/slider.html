@@ -1,0 +1,47 @@
+{% load static %}
+<div class="hero" id="highlighted">
+    <div class="inner">
+        <!--Slideshow-->
+        <div id="highlighted-slider" class="container">
+            <div class="item-slider" data-toggle="owlcarousel" data-owlcarousel-settings='{"singleItem":true, "navigation":true, "transitionStyle":"fadeUp", "autoplay":"true", "autoplayTimeout":"1000"}'>
+            <!--Slideshow content-->
+            <!--Slide 1-->
+            {% for s in slide  %}
+            <div class="item">
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6 item-caption">
+                        <h2 class="h1 text-weight-light">
+                        Selamat Datang di <span class="text-primary">{{ s.site.name }}</span>
+                        </h2>
+                        <h4>
+                        Portal Resmi {{ s.site.name }} Di Kabupaten Lombok Barat.
+                        </h4>
+                        <p>{{ s.description }}</p>
+
+                        <h5 class="h-xlg h1 m-a-0">
+                        <span data-counter-up>{{ dip_count }}</span><span class="text-primary">DIP</span>
+                        </h5>
+                
+                        <p><a href="berkala"><span data-counter-up>{{ dip1_count }}</span></a> 
+                        <small>Informasi Berkala</small> | <a href="sertamerta"><span data-counter-up>{{ dip2_count }}</span></a>
+                        <small>Serta Merta</small> | <a href="setiapsaat"><span data-counter-up>{{ dip3_count }}</span></a>
+                        <small>Informasi Setiap Saat</small>  <a href="DIP" class="btn btn-more i-right">Lihat Info Publik <i class="fa fa-plus"></i></a>
+                    </p>
+                    </div>
+                        <div class="col-md-6 col-md-pull-6 hidden-xs">
+                        <img src="{{ s.slide1.url }}" alt="Formulir Permintaan Data PPID lombok Barat" class="center-block img-responsive">
+                        </div>
+                </div>
+            </div>
+            <!--Slide 2-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-md-12 hidden-xs">
+                    <img src="{{ s.slide2.url }}" alt="Slide 2" class="center-block img-responsive">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

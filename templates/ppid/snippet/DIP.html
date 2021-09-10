@@ -1,0 +1,6 @@
+{% load static %}
+{% for s in slide  %}
+<div class="block block-pd-sm block-bg-grey-dark block-bg-overlay block-bg-overlay-6 text-center" data-block-bg-img="images/bil.jpg?q=40&amp;w=1650&amp;sharp=30" data-stellar-background-ratio="0.3">
+    <p class="text-fancy"><a href="{{ s.pelayanan.url }}" target="_blank"><img src="{{ s.pelayanan.url }}" class="img-responsive img-thumbnail pull-center m-l m-b"></a></p>		
+</div>
+{% endfor %}

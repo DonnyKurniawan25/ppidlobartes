@@ -1,0 +1,33 @@
+{% extends "ppid/base-content.html" %}
+
+{% block content %}
+    <p class="lead"><span id="publish_date">INFORMASI SERTA MERTA</span></p>
+            {% for d in dataopd%}
+        <div class="block-highlight block-pd-h block-pd-sm">
+            <h4 class="block-title"> {{ d.title }} - {{ d.code }} </h4>
+            <p class="text-fancy"><h5><i class="fa fa-calendar"></i> {{ d.date }}|
+            <i class="fa fa fa-cog"></i> {{ d.size }} KB
+            <i class="fa fa-book"></i></b>{{ d.total_reads }} X |
+            <i class="fa fa-download"></i>{{ d.total_downloads }} X
+            
+            <h5>
+            <align ="right">
+                    <a class="btn btn-more i-right"  href="{% url 'DIP' pk=d.id %}?post-id={{ d.id }}" class="link2 fleft" >Lihat<i class="fa fa-eye"></i></a>
+                    <a class="btn btn-more i-right"  href="{% url 'Download' pk=d.id %}?post-id={{ d.id }}" class="link2 fleft">Download <i class="fa fa-download"></i></a>  
+            </align>  
+            </h5>
+            </p>
+        </div>
+        {% endfor %}
+          <ul class="pagination pagination-lg">
+            {% if dataopd.has_previous %}
+                <li><a href="{% url 'sertamerta' %}?page={{dataopd.previous_page_number}}">&lt;&lt; Previous </a></li>
+            {% endif %}
+            <li> <a >{{dataopd.number}} Of {{dataopd.paginator.num_pages}}</a></li>
+            {% if dataopd.has_next  %}
+                <li><a href="{% url 'sertamerta' %}?page={{dataopd.next_page_number}}">Next &gt;&gt;</a></li>
+            {% else %}
+            {% endif %}
+            </ul><p><h4><span class="alert alert-info">Jumlah DIP Yang Diunggah = {{dip2_count}} </span></h4></p>
+
+{% endblock%}

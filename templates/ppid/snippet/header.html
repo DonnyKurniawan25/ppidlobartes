@@ -1,0 +1,52 @@
+{% load static %}
+<!--Hidden Header Region-->
+<div class="header-hidden collapse">
+    <div class="header-hidden-inner container">
+        <div class="row">
+        <a href="https://www.facebook.com/ppid.lobar" target="_blank">  <img src="{% static 'images/fb.png' %}" alt="Facebook PPID Lombok Barat"></a>
+        </div>
+    </div>
+</div>
+<!--Header & navbar-branding region-->
+<div class="header">
+    <div class="header-inner container">
+        <div class="row">
+            <div class="col-md-8">
+                <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
+                <a class="navbar-brand" href="/" title="Home">
+                <h1 class="hidden">
+                    <img src="{% static 'img/logo.png' %}" alt="Flexor Logo">
+                    PPID
+                </h1>
+                </a>
+                <div class="navbar-slogan">
+                Pejabat Pengelola Informasi dan Dokumentasi
+                <br>
+                Kabupaten Lombok Barat
+                </div>
+            </div>
+            <!--header rightside-->
+            <div class="col-md-4">
+                <!--user menu-->
+                <!--FB -->
+                <ul class="list-inline user-menu pull-right">
+                <li class="hidden-xs"><a href="https://play.google.com/store/apps/details?id=com.ppid.diskominfo.ppid" target="_blank" class="text-uppercase"><i class="fa fa-android fa-2x text-primary"></i> </a></li>
+                <li class="hidden-xs"><a data-toggle="collapse" data-target=".header-hidden"><i class="fa fa-facebook fa-2x text-primary"></i> </a></li>
+                <li><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">FB</a></li>
+                </ul>
+                <!--END FB -->
+                <div class="input-group stylish-input-group">
+                    <form class="navbar-form" role="search" method="post" action="{% url 'search' %}">
+                    {% csrf_token %}
+                        <div class="input-group add-on">
+                        <input class="form-control" placeholder="Cari DIP" name="searched" id="cariauto" type="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

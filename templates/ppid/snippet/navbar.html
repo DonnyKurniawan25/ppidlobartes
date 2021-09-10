@@ -1,0 +1,518 @@
+{% for sites in site %}
+
+{% if sites.id == 1  %}
+
+<div class="navbar navbar-default">
+    <!--mobile collapse menu button-->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <!--social media icons-->
+
+    <!--everything within this div is collapsed on mobile-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'profileppid' %}">Profil Singkat PPID</a></li>
+                    <li><a href="{% url 'visimisippid' %}">Visi Misi PPID</a></li>
+                    <li><a href="{% url 'structureppid' %}">Struktur Organisasi PPID</a></li>
+                    <li><a href="{% url 'authorityppid' %}">Tugas Fungsi PPID</a></li>
+                    <li><a href="{% url 'noticeppid' %}">Maklumat Pelayanan</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program dan Kegiatan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"> </a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            {% comment %} <li class="dropdown dropdown-mm">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Keuangan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+                    <li class="row">
+                        <ul class="col-md-6">
+                            <li class="dropdown-header" ><a href="http://ppid.lombokbaratkab.go.id/detail_vw.php?id=4326&act=ppid&dns=%202&jns=%204" class="text-weight-strong">RPJMD 2019-2024</a></li>
+                            <li class="dropdown-header" ><a href="images/laporan/rpjmd2017.pdf" class="text-weight-strong">RPJMD Review 2017-2019</a></li>
+                            <li class="dropdown-header" ><a href="images/laporan/rpjmd2014.pdf" class="text-weight-strong">RPJMD 2014-2019</a></li>
+                            <br>	
+                            <li class="dropdown-header">LPPD</li>
+                            <li class="dropdown-header"><a href="images/laporan/LPPD_2017.pdf">LPPD 2017</a></li>
+                        </ul>
+                        <ul class="col-md-6">
+                            <li class="dropdown-header">LAKIP </li>
+                            <li class="dropdown-header"><a href="images/laporan/LAKIP_2017.pdf">LAKIP 2017</a></li>
+                            <li class="dropdown-header"><a href="detail_vw.php?id=2159&act=ppid&dns=%202&jns=%202" class="text-weight-strong">LAKIP 2016 </a></li>
+                            <li class="dropdown-header"><a href="lakipopd">Lakip OPD</a></li>
+                            <li class="dropdown-header">LRA </li>
+                            <li class="dropdown-header"><a href="images/laporan/LRA_2017.pdf">LRA 2017</a></li>
+                            <li class="dropdown-header"><a href="rinciandip-48-2-1698">LRA 2016</a></li>
+                            <li class="dropdown-header"><a href="lra">LRA OPD</a></li>
+                            
+                            <br>
+                            <li class="dropdown-header">RKPD </li>							
+                            <li class="dropdown-header"><a href="images/laporan/RKPD_2018.pdf">RKPD 2018</a></li>
+                            <li class="dropdown-header"><a href="rencanakerja">RKPD OPD</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> {% endcomment %}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
+                    <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li>
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
+                    <li class="divider"></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'formsengketa' %}">Formulir Keberatan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
+                    <li><a href="{% url 'rancangan' %}" >Rancangan</a></li>							
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'laporanpermohonan' %}">Jumlah Permohonan Layanan</a></li>
+                    <li><a href="{% url 'waktupememnuhan' %}">Waktu Pemenuhan Layanan</a></li>
+                    <li><a href="{% url 'layanandikabulkan'%}">Layanan yang dikabulkan</a></li>
+                    <li><a href="{% url 'layananditolak' %}">Jumlah Layanan Ditolak</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'complaint'%}">Pengaduan</a></li>
+            <li><a href="{% url 'contact'%}">Hubungi Kami</a></li>
+        </ul>
+    </div>
+    <!--/.navbar-collapse -->
+</div>
+
+{% elif sites.id == 2 %}
+<div class="navbar navbar-default">
+    <!--mobile collapse menu button-->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <!--social media icons-->
+
+    <!--everything within this div is collapsed on mobile-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program dan Kegiatan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"> </a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
+                    {% comment %} <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li> {% endcomment %}
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
+                    <li class="divider"></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'formsengketa' %}">Formulir Keberatan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
+                    <li><a href="{% url 'rancangan' %}" >Rancangan</a></li>							
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'laporanpermohonan' %}">Jumlah Permohonan Layanan</a></li>
+                    <li><a href="{% url 'waktupememnuhan' %}">Waktu Pemenuhan Layanan</a></li>
+                    <li><a href="{% url 'layanandikabulkan'%}">Layanan yang dikabulkan</a></li>
+                    <li><a href="{% url 'layananditolak' %}">Jumlah Layanan Ditolak</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'complaint'%}">Pengaduan</a></li>
+            <li><a href="{% url 'contact'%}">Hubungi Kami</a></li>
+        </ul>
+    </div>
+    <!--/.navbar-collapse -->
+</div>
+
+{% elif sites.id == 3 %}
+
+<div class="navbar navbar-default">
+    <!--mobile collapse menu button-->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <!--social media icons-->
+
+    <!--everything within this div is collapsed on mobile-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program dan Kegiatan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"> </a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
+                    {% comment %} <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li> {% endcomment %}
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
+                    <li class="divider"></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'formsengketa' %}">Formulir Keberatan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
+                    <li><a href="{% url 'rancangan' %}" >Rancangan</a></li>							
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'laporanpermohonan' %}">Jumlah Permohonan Layanan</a></li>
+                    <li><a href="{% url 'waktupememnuhan' %}">Waktu Pemenuhan Layanan</a></li>
+                    <li><a href="{% url 'layanandikabulkan'%}">Layanan yang dikabulkan</a></li>
+                    <li><a href="{% url 'layananditolak' %}">Jumlah Layanan Ditolak</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'complaint'%}">Pengaduan</a></li>
+            <li><a href="{% url 'contact'%}">Hubungi Kami</a></li>
+        </ul>
+    </div>
+    <!--/.navbar-collapse -->
+</div>
+
+{% elif  sites.id == 4 %}
+<div class="navbar navbar-default">
+    <!--mobile collapse menu button-->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <!--social media icons-->
+
+    <!--everything within this div is collapsed on mobile-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program dan Kegiatan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"> </a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            {% comment %} <li class="dropdown dropdown-mm">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Keuangan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+                    <li class="row">
+                        <ul class="col-md-6">
+                            <li class="dropdown-header" ><a href="http://ppid.lombokbaratkab.go.id/detail_vw.php?id=4326&act=ppid&dns=%202&jns=%204" class="text-weight-strong">RPJMD 2019-2024</a></li>
+                            <li class="dropdown-header" ><a href="images/laporan/rpjmd2017.pdf" class="text-weight-strong">RPJMD Review 2017-2019</a></li>
+                            <li class="dropdown-header" ><a href="images/laporan/rpjmd2014.pdf" class="text-weight-strong">RPJMD 2014-2019</a></li>
+                            <br>	
+                            <li class="dropdown-header">LPPD</li>
+                            <li class="dropdown-header"><a href="images/laporan/LPPD_2017.pdf">LPPD 2017</a></li>
+                        </ul>
+                        <ul class="col-md-6">
+                            <li class="dropdown-header">LAKIP </li>
+                            <li class="dropdown-header"><a href="images/laporan/LAKIP_2017.pdf">LAKIP 2017</a></li>
+                            <li class="dropdown-header"><a href="detail_vw.php?id=2159&act=ppid&dns=%202&jns=%202" class="text-weight-strong">LAKIP 2016 </a></li>
+                            <li class="dropdown-header"><a href="lakipopd">Lakip OPD</a></li>
+                            <li class="dropdown-header">LRA </li>
+                            <li class="dropdown-header"><a href="images/laporan/LRA_2017.pdf">LRA 2017</a></li>
+                            <li class="dropdown-header"><a href="rinciandip-48-2-1698">LRA 2016</a></li>
+                            <li class="dropdown-header"><a href="lra">LRA OPD</a></li>
+                            
+                            <br>
+                            <li class="dropdown-header">RKPD </li>							
+                            <li class="dropdown-header"><a href="images/laporan/RKPD_2018.pdf">RKPD 2018</a></li>
+                            <li class="dropdown-header"><a href="rencanakerja">RKPD OPD</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> {% endcomment %}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
+                    {% comment %} <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li> {% endcomment %}
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
+                    <li class="divider"></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'formsengketa' %}">Formulir Keberatan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
+                    <li><a href="{% url 'rancangan' %}" >Rancangan</a></li>							
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'laporanpermohonan' %}">Jumlah Permohonan Layanan</a></li>
+                    <li><a href="{% url 'waktupememnuhan' %}">Waktu Pemenuhan Layanan</a></li>
+                    <li><a href="{% url 'layanandikabulkan'%}">Layanan yang dikabulkan</a></li>
+                    <li><a href="{% url 'layananditolak' %}">Jumlah Layanan Ditolak</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'complaint'%}">Pengaduan</a></li>
+            <li><a href="{% url 'contact'%}">Hubungi Kami</a></li>
+        </ul>
+    </div>
+    <!--/.navbar-collapse -->
+</div>
+
+{% elif  sites.id == 5 %}
+<div class="navbar navbar-default">
+    <!--mobile collapse menu button-->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <!--social media icons-->
+
+    <!--everything within this div is collapsed on mobile-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program dan Kegiatan<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#"> </a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
+                    {% comment %} <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li> {% endcomment %}
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
+                    <li class="divider"></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'formsengketa' %}">Formulir Keberatan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
+                    <li><a href="{% url 'rancangan' %}" >Rancangan</a></li>							
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan PPID<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'laporanpermohonan' %}">Jumlah Permohonan Layanan</a></li>
+                    <li><a href="{% url 'waktupememnuhan' %}">Waktu Pemenuhan Layanan</a></li>
+                    <li><a href="{% url 'layanandikabulkan'%}">Layanan yang dikabulkan</a></li>
+                    <li><a href="{% url 'layananditolak' %}">Jumlah Layanan Ditolak</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'complaint'%}">Pengaduan</a></li>
+            <li><a href="{% url 'contact'%}">Hubungi Kami</a></li>
+        </ul>
+    </div>
+    <!--/.navbar-collapse -->
+</div>
+
+{% endif %}
+
+{% endfor %}

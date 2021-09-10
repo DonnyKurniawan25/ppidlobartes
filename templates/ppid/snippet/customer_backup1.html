@@ -1,0 +1,39 @@
+{% load static %}
+<div class="testimonials block-contained">
+    <div class="row">
+        <!--Customer testimonial-->
+        <h3 class="block-title">
+            Data PPID Kabupaten Lombok Barat 
+        </h3>
+        <div class="col-md-4 m-b-lg">
+            <!-- Blog post 1-->
+            <div class="media">
+                <div class="col-md-12">
+                    <div class="panel panel-default panel-pricing">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ d.site.name}}<em></em></h4>
+                        </div>
+                        <div class="panel-pricing-price"><img src="{% static 'images/logo.png' %}"></div>
+                        <div class="panel-body">
+
+                                <ol class="list-dotted">
+                                    {% comment %} {% for s in show %}
+                                   <li><a href="{% url 'DIP' pk=s.id %}?post-id={{ s.id }}">{{ s.title }}</a></li>
+                                    {% endfor %} {% endcomment %}
+                                    {% for d in data  %}
+                                   <li><a href="{% url 'DIP' pk=d.id %}?post-id={{ d.id }}">{{ d.title }}</a></li>
+                                    {% endfor %}
+                                </ol>
+
+                            {% comment %} {% for sites in site1%}
+                            <a href="https://{{ sites.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                            {% endfor %} {% endcomment %}
+                            <a href="https://{{ d.site.domain }}/DIP" class="btn btn-primary btn-sm center-block">Seluruh Data..</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog post 2 -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+    {% include "account/snippet/head.html" %} 
+    <body id="page-top">
+    	{% include "account/snippet/loader.html" %} 
+        <div class="page">
+    		{% include "account/snippet/header.html" %} 
+            <!-- Begin Page Content -->
+            <div class="page-content d-flex align-items-stretch">
+    			{% include "account/snippet/sidebar.html" %} 
+                {% block content %}
+				
+				{% endblock %}
+            </div>
+            <!-- End Page Content -->
+        </div>
+    	{% include "account/snippet/scripts.html" %} 
+        
+    </body>
+    {% block js%}
+    {% endblock %}
+    
+	<script>
+	{% block script %}
+	{% endblock %}
+	</script>
+</html>

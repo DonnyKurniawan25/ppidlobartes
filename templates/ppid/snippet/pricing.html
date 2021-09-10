@@ -1,0 +1,74 @@
+{% load static %}
+<div class="block-contained">
+    <h2 class="block-title">
+    Informasi Umum
+    </h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default panel-pricing text-center">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    Pengadaan <em>Barang Jasa</em>
+                    </h4>
+                </div>
+                <div class="panel-pricing-price"><img src="{% static 'images/lpse1.png' %}"></div>
+                <div class="panel-body">
+                    <ul class="list-dotted">
+                        LPSE adalah sistem pengadaan barang/jasa pemerintah yang dilaksanakan secara elektronik, efektif dan transparan.
+                    </ul>
+                    <a href="http://lpse.lombokbaratkab.go.id" target="_blank" class="btn btn-primary btn-sm">Detail..</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default panel-pricing text-center">
+                <div class="panel-heading">
+                    <h4 class="panel-title">LHKP<em></em></h4>
+                </div>
+                <div class="panel-pricing-price"><img src="{% static 'images/acch.png' %}"></div>
+                <div class="panel-body">
+                    <ul class="list-dotted">Laporan Harta Kekayaan Penyelenggara Negara menggunakan aplikasi yang berbasis web (web based) dengan alamat www.elhkpn.kpk.go.id</ul>
+                    <a href="https://elhkpn.kpk.go.id/portal/user/login" target="_blank" class="btn btn-primary btn-sm">Detail..</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="panel panel-default panel-pricing text-center">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Produk Hukum</h4>
+                </div>
+                <div class="panel-pricing-price"><img src="{% static 'images/jdih.png' %}"></div>
+                <div class="panel-body">
+                    <ul class="list-dotted">JDIH adalah suatu sistem pendayagunaan bersama peraturan perundang-undangan dan bahan dokumentasi hukum lainnya secara tertib...</ul>
+                    <a href="http://jdih.lombokbaratkab.go.id" target="_blank" class="btn btn-primary btn-sm">Detail..</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="panel panel-default panel-pricing text-center">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    Polling Kepuasan
+                    </h4>
+                </div>
+                <div class="panel-pricing-price">
+                    <div class="title">
+                        <h5><strong>Bagaimana pendapat anda tentang <p class="stsPsn">website PPID Lombok Barat</p></strong></h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-dotted">
+                    <form class="form-poll" action="hasilpoll.php?act=result&IDpoll=<?php echo $dataPoll['poll']['id']; ?>" method="post" name="pollFrm">
+                    <div class="element-radio left">
+                        <input required type="radio" name="voteOpt" value="Baik" >Baik</ul>
+                        <div class="submit">
+                            <input type="hidden" name="IDpoll" value="<?php echo $dataPoll['poll']['id']; ?>">
+                            <input type="submit" class="btn btn-primary btn-sm" name="submitVote" class="button" value="Vote">
+                            <input type="button" class="btn btn-primary btn-sm"value="Hasil" onclick="location.href='hasilpoll.php?act=result&IDpoll=<?php echo $dataPoll['poll']['id']; ?>'"/>
+                        </div></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   

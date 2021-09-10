@@ -1,0 +1,14 @@
+{% extends "ppid/base-detail.html" %}
+{% load static %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Konfirmasi Download File DIP  Kabupaten Lombok Barat</h2>
+    <p><h5>Judul File : {{ object.title }}</h5> </p>
+    <p><h5>Nama File : {{ object.file }}</h5></p>
+    <p><h5>Ukuran : {{ object.size }} MB</h5></p>
+    <p><a href="{{ object.file.url }}" size='50' class="btn btn-primary btn-lg">Download DIP</a></p></form>
+</div>
+<!-- Berkala Serta Merta setiap saat -->
+    <p class="text-fancy">Pejabat anggota Pengelola Informasi dan 
+    Dokumentasi (PPID) Kabupaten Lombok Barat menyediakan akses informasi publik bagi pemohon informasi sebagai salah satu wujud pelaksanaan keterbukaan informasi publik.</p>
+{% endblock %}

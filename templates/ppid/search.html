@@ -1,0 +1,25 @@
+{% extends "ppid/base-content.html" %}
+
+{% block content %}
+<div class="block-highlight block-pd-h block-pd-sm">
+    {% if searched %}
+    <h3 class="block-title">
+            <!-- ISI DIP -->
+            <strong>Hasil pencarian DIP:</strong><br><br></h3>
+            {% for d in datas %}
+            <h4 class="media-heading"><a class="text-weight-strong" href="{% url 'DIP' pk=d.id %}?post-id={{ d.id }}">{{ d }}</a></h4>
+            <p><small>OPD : {{ d.dinas.title }}</small><p><hr>
+            {% endfor %}
+    {% else %}
+     <h3 class="block-title">
+            <!-- ISI DIP -->
+            <strong>Silahkan Ketik Apa yang anda Cari</strong><br><br></h3>
+    {% endif %}
+  
+</div>
+    <!-- Berkala Serta Merta setiap saat -->
+    <p class="text-fancy"><small>Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kabupaten Lombok Barat menyediakan akses 
+    informasi publik bagi pemohon informasi sebagai salah satu wujud pelaksanaan keterbukaan informasi publik.</small></p>
+
+{% endblock %}
+ 

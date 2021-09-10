@@ -1,0 +1,105 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content %}
+ <!-- Begin Content -->
+<div class="content-inner profile">
+	<div class="container-fluid">
+		<!-- Begin Page Header-->
+		<div class="row">
+			<div class="page-header">
+				<div class="d-flex align-items-center">
+					<h2 class="page-header-title">Profile</h2>
+					<div>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+							<li class="breadcrumb-item"><a href="#">Pages</a></li>
+							<li class="breadcrumb-item active">Profile</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Header -->
+		<div class="row flex-row">
+			<div class="col-xl-3">
+				<!-- Begin Widget -->
+				<div class="widget has-shadow">
+					<div class="widget-body">
+						<div class="mt-5">
+							<img src="{% static 'assets/img/avatar/lobar.png' %}" alt="..." style="width: 120px;" class="d-block mx-auto">
+						</div>
+						{% for d in show %}
+						<h3 class="text-center mt-3 mb-1">{{ d.title }}</h3>
+						<p class="text-center">{{ d.email }}</p>
+						{% endfor %}
+						<div class="em-separator separator-dashed"></div>
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'change-password-view' %}"><i class="la la-key la-2x align-middle pr-2"></i>Ubah Password</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- End Widget -->
+			</div>
+			<div class="col-xl-9">
+				<div class="widget has-shadow">
+					<div class="widget-header bordered no-actions d-flex align-items-center">
+						<h4>Update Profile</h4>
+					</div>
+					<div class="widget-body">
+						<div class="col-10 ml-auto">
+							<div class="section-title mt-3 mb-3">
+								<h4>Personnal Informations</h4>
+							</div>
+						</div>
+						<form class="form-horizontal" method="post">
+						{% csrf_token %}
+							<div class="form-group row d-flex align-items-center mb-5">
+								<label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Instansi</label>
+								<div class="col-lg-6">
+									{{ form.title }}
+								</div>
+							</div>
+							<div class="form-group row d-flex align-items-center mb-5">
+								<label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Singkatan</label>
+								<div class="col-lg-6">
+									{{ form.shortness }}
+								</div>
+							</div>
+							<div class="form-group row d-flex align-items-center mb-5">
+								<label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Email</label>
+								<div class="col-lg-6">
+								{{ form.email }}
+								</div>
+							</div>
+							<div class="form-group row d-flex align-items-center mb-5">
+								<label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Phone</label>
+								<div class="col-lg-6">
+								{{ form.telp }}
+								</div>
+							</div>
+							<div class="form-group row d-flex align-items-center mb-5">
+								<label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Website</label>
+								<div class="col-lg-6">
+								{{ form.website }}
+								</div>
+							</div>
+						<div class="em-separator separator-dashed"></div>
+						<div class="text-right">
+							<button class="btn btn-gradient-01" type="submit" value="Update">Save Changes</button>
+							<button class="btn btn-shadow" type="reset">reset</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Container -->
+	<a href="#" class="go-top"><i class="la la-arrow-up"></i></a>
+</div>
+<!-- End Content -->
+
+{% endblock %}
